@@ -5,7 +5,7 @@
 ### Rodrigo Levi García Garay
 ### César Alejandro Urías González
 
-´´´
+```sh
 Notas:
-* Cada problema está en su propia carpeta de proyecto
-´´´
+* Cada ejercicio está en su propia carpeta de proyecto
+```
