@@ -9,3 +9,4 @@
 Notas:
 * Cada ejercicio está en su propia carpeta de proyecto
 ```
+![image](https://github.com/bueno-armando/POO_EVA3_EXAMEN_PRACTICO/assets/105247039/14331da1-f5df-4d73-83f3-16eed47499ab)
