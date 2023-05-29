@@ -9,9 +9,12 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -22,7 +25,7 @@ public class EXAMEN3_P2_ICECREAMSANDWICH {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
        Inventario inventario = new Inventario (); 
         Scanner scanner = new Scanner (System.in); 
         
@@ -209,20 +212,25 @@ class Inventario {
     }
     
      /////////////////////////////////////////////////////////
-          public void saveToFiles(String FileName){
+          public void saveToFiles(String FileName) throws IOException{
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FileName))) {
+             JFileChooser fileChooser = new JFileChooser("C:\\archivos\\");
+             int resu = fileChooser.showOpenDialog(fileChooser);
+        if(resu == JFileChooser.APPROVE_OPTION){
+            
             for (int i = 0; i < cProducto; i++) {
                 Producto producto = inventario[i];
                 String line = producto.getId() + "," + producto.getNombre()+ "," + producto.getPrecio() + "," + producto.getCantidad();
                 writer.write(line);
                 writer.newLine();
             }
+        }
             System.out.println("Inventario guardado con exito en: " + FileName);
         } catch (IOException e) {
             System.out.println("Error"); 
         }
     }
-    /////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////    /////////////////////////////////////////////////////////////////
       public void loadFromFile(String filename) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
